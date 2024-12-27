@@ -31,7 +31,7 @@ public class MovieService {
         var movies = movieRepository.findAll();
 
         if(movies.isEmpty()){
-            throw new EntityNotFoundException("There is no movie");
+            throw new EntityNotFoundException("There are no movie");
         }
 
         return movies.stream()
@@ -51,7 +51,7 @@ public class MovieService {
     }
 
     public File getMovieBanner(int id) throws FileNotFoundException {
-        Movie movie = movieRepository.findById((long) id).orElseThrow(()-> new EntityNotFoundException("There is no movie with that id"));
+        Movie movie = movieRepository.findById((long) id).orElseThrow(()-> new EntityNotFoundException("There are no movie with that id"));
 
         File fileToSend = new File(movie.getPosterPath());
 
